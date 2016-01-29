@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>super functional</title>
+	<script type="text/javascript">
+		function justAFunction(){
+			console.log('functions can be declared as usual');
+		};
+
+		var justAnotherFunction = function(){
+			console.log('but this function is declared with var justAnotherFunction = function(){...} is expressed as an object');
+		};
+
+		console.log("All functions are objects of type 'function' ");
+
+		console.log(typeof justAFunction);
+		console.log(typeof justAnotherFunction);
+
+		//this function, although declared later, is available, it's being hoisted
+		console.log(typeof justAFunctionThatWillBeHoisted);
+
+		function justAFunctionThatWillBeHoisted(){
+			console.log("even though declared later this is automatically hoisted to the top");
+		}
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
