@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title> closures</title>
+	<script type="text/javascript">
+	const CIRCLE = "circle";
+	const SQUARE = "square";
+	const RECTANGLE = "rectangle";
+
+	function getAreaFunction(shape) {
+  		return function () {
+    		switch (shape) {
+      			case CIRCLE:
+        			return Math.PI * arguments[0] * arguments[0];
+        			break;
+      			case SQUARE:
+        			return arguments[0] * arguments[0];
+        			break;
+      			case RECTANGLE:
+        			return arguments[0] * arguments[1];
+        			break;
+    		}
+  		};
+	};
+
+	var getAreaOfCircle = getAreaFunction(CIRCLE);
+	var getAreaOfSquare = getAreaFunction(SQUARE);
+	var getAreaOfRectangle = getAreaFunction(RECTANGLE);
+
+	console.log(getAreaOfCircle(50));
+	console.log(getAreaOfSquare(50));
+	console.log(getAreaOfRectangle(50, 20));
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

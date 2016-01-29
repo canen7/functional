@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title> closures to avoid setting event handlers with a loop</title>
+	<style type="text/css">
+	.redBox{
+		background-color: red;
+		width: 100px;
+		height: 100px;
+		margin: 5px;
+		display: inline-block; 
+	}
+	.greenBox{
+		background-color: green;
+		width: 100px;
+		height: 100px;
+		margin: 5px; 
+		display: inline-block;
+	}
+	</style>
+	
+</head>
+<body>
+
+
+	<div id="redBox1" class="redBox">redbox1</div>
+	<div id="redBox2" class="redBox">redbox2</div>
+	<div id="redBox3" class="redBox">redbox3</div>
+
+	<br>
+
+	<div id="greenBox1" class="greenBox">greenbox1</div>
+	<div id="greenBox2" class="greenBox">greenbox2</div>
+	<div id="greenBox3" class="greenBox">greenbox3</div>
+
+	<script type="text/javascript">
+		(function () {
+
+
+    		for (var i = 1; i <= 3; i++) {
+
+    		//Due to functional scoping all red boxes will have onclick handlers with id 3	
+     			var redBoxId = "redBox" + i;
+      			document.getElementById(redBoxId).onclick = function () {
+        			console.log(redBoxId + " was clicked");
+      			};
+
+      		// due to the self executing anonymous function which returns another funcion which is assigned to the onclick handler we get the right ids!!
+      			var greenBoxId = "greenBox" + i;
+      			document.getElementById(greenBoxId).onclick = (function (greenBoxId) {
+        			return function () {
+          				console.log(greenBoxId + " was clicked");
+        			}
+      			})(greenBoxId);
+    		}
+  		})();
+	</script>
+
+</body>
+</html>

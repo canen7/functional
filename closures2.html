@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title> closures - private class</title>
+	<script type="text/javascript">
+		const CIRCLE = "circle";
+		const SQUARE = "square";
+		const RECTANGLE = "rectangle";
+
+		function getAreaFunction(shape) {
+  			return function () {
+    			switch (shape) {
+      				case CIRCLE:
+        				return Math.PI * arguments[0] * arguments[0];
+        				break;
+      				case SQUARE:
+        				return arguments[0] * arguments[0];
+        				break;
+      				case RECTANGLE:
+        				return arguments[0] * arguments[1];
+        				break;
+    			}
+  			};
+		};
+
+		function Shape (type) {
+  			var area = getAreaFunction(type);
+  			return {
+    			getArea:function () {
+      			return Math.round(Number(area.apply(this, arguments)));
+    			}
+  			};
+		};
+
+		var aCircle = new Shape(CIRCLE);
+		var aSquare = new Shape(SQUARE);
+		var aRectangle = new Shape(RECTANGLE);
+
+		console.log(aCircle.getArea(50));
+		console.log(aSquare.getArea(50));
+		console.log(aRectangle.getArea(50, 20));
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
