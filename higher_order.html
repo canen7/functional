@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>higher order functions</title>
+	<script type="text/javascript">
+	// we define a higher order function forEach with two arguments:
+	//	list: array containing objects
+	//	action: function invoked for each element of the array
+
+	var forEach = function (list, action) {
+		for (var i = 0; i < list.length; i++){
+			action(list[i]);
+		}
+	};
+
+	var logItem = function (item) {
+		console.log(item);
+	}
+
+	var alertItem = function(item){
+		alert(item);
+	}
+
+	var listOfFoods = ["salad","chicken","bacon","wine","bread"];
+	var listOfSports = ["fusball","ping-pong","surf","ski"];
+
+	forEach(listOfFoods, logItem);
+	//forEach(listOfFoods, alertItem);
+
+	forEach(listOfSports, function(item){
+		console.log("the item's " + item + " length is " + item.length);
+	})
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

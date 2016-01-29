@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title> map</title>
+	<script type="text/javascript">
+		var forEach = function (list,action) {
+			for (var i = 0; i<list.length; i++){
+				action(list[i]);
+			}
+		};
+
+		var map = function(mappingFunction, list) {
+			var result = [];
+			forEach(list, function(item) {
+				result.push(mappingFunction(item));
+			});
+			return result;
+		};
+
+		// var doubleIt = function(item){
+		// 	if(typeof item ==="number"){
+		// 		return item * 2;
+		// 	}
+		// };
+
+		function doubleIt(item) {
+			if(typeof item ==='number'){
+				return item * 2;
+			} else {
+				if (typeof item === 'string') {
+					return item + item;
+				} else {
+					return undefined
+				}
+			}
+
+		}
+
+		console.log(map(doubleIt, [1,2,3,4,"omg", false]));
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
