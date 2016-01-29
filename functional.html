@@ -13,10 +13,16 @@
 		console.log("All functions are objects of type 'function' ");
 
 		console.log(typeof justAFunction);
+		console.log("running the previous stuff");
+		justAFunction();
+
 		console.log(typeof justAnotherFunction);
+		console.log("running the previous stuff");
+		justAnotherFunction();
 
 		//this function, although declared later, is available, it's being hoisted
 		console.log(typeof justAFunctionThatWillBeHoisted);
+		justAFunctionThatWillBeHoisted();
 
 		function justAFunctionThatWillBeHoisted(){
 			console.log("even though declared later this is automatically hoisted to the top");
