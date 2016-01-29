@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>self invoked anonymous function</title>
+	<script type="text/javascript">
+		(function (argument) {
+			console.log(argument + "function can be executed on definition, use the parenthesis!!");
+		})("an anonymous ");
+
+		console.log("js provides functional scoping, no block scoping");
+		(function(){
+			if (true) {
+				var x = true;
+				console.log("Is 'x' available inside the block?" + x );
+			}
+			console.log("Is 'x' available outside the block?" + x);
+		})();
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

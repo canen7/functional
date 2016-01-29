@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>dynamic context - dynamic arguments</title>
+	<script type="text/javascript">
+	var logArguments = function(){
+		console.log(arguments);
+	};
+
+	logArguments("cool", "bro");
+	logArguments(['cat','dog','ashtray']);
+	logArguments(30);
+	logArguments({kid:'pocoyo', duck:'pato', elephant:'ely'});
+	logArguments(22,['cat','dog','ashtray'], {kid:'pocoyo', duck:'pato', elephant:'ely'});
+
+
+	var logThis = function(){
+		console.log(this);
+	};
+
+	console.log("All functions can have the this object, this mean they have a dynamic context");
+	logThis();
+
+
+	console.log('with .apply on logThis we can set the context, thus passing arguments');
+	logThis.apply({hey_yo:"bitch"});
+
+
+
+
+
+	</script>
+
+
+</head>
+<body>
+
+</body>
+</html>
