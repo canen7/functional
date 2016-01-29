@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title> reduce </title>
+	<script type="text/javascript">
+		function forEach(list, action){
+			for (var i = 0; i<list.length; i++) {
+				action(list[i]);
+			}
+		};
+
+		function reduce(combine,base,list){
+			forEach(list, function (item){
+				base = combine(base,item);
+			});
+			return base;
+		};
+
+		var countPositiveNumbers = function (positiveNumbersUntilNow, currentNumber) {
+			if (typeof currentNumber === "number" && currentNumber > 0) {
+				positiveNumbersUntilNow += 1
+			}
+			return positiveNumbersUntilNow;
+		};
+
+		var initialCount = 0;
+
+		arrNumbers = [-2, 4, 5, -22, -3200, 0, 7]; 
+
+		console.log(reduce(countPositiveNumbers, initialCount, arrNumbers));
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
